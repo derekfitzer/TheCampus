@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     //var location: location
+    @State var locAlert = false
     @State var location = locations[0]
-    @State var hide = true
+    @State var hide = false
     var body: some View {
         ZStack {
             Image(location.image)
@@ -40,12 +41,28 @@ struct ContentView: View {
 //                    .aspectRatio(contentMode: .fit)
 //                    .cornerRadius(10)
 //                    .opacity(hide ? 0 : 1)
+                
+//                List(location.destinations) {
+//                    dest in
+//                    Button {
+//                       // let pickString = dest.link
+//                        location = locations[dest.link]
+//                    } label: {
+//                        Text(dest.myText)
+//                    }
+//                    .cornerRadius(10)
+//                }
 
                 List(location.destinations) {
                     dest in
                     Button {
-                       // let pickString = dest.link
-                        location = locations[dest.link]
+                        if let a = seachLoc(location: dest.link, locations: locations) {
+                            location = locations[a]
+                        } else {
+                            locAlert = true
+                        }
+                        
+//                        location = locations[dest.link]
                     } label: {
                         Text(dest.myText)
                     }
@@ -60,6 +77,14 @@ struct ContentView: View {
                 } label: {
                     Text("hide")
                 }
+                .alert(isPresented: $locAlert) {
+                    Alert(title: Text("Location Error"), message: Text(String(msg404.randomElement() ?? ":-)")), dismissButton: .default(Text("Continue")))
+                        }
+               
+                
+                NavigationLink("rando", destination: ArchiveView())
+
+
 
             }
             .padding()
@@ -76,6 +101,12 @@ struct ContentView: View {
     }
       
 }
+
+func seachLoc(location: Int, locations: [location]) -> Int? {
+  //  return locations.firstIndex(where: $0.mapID == location)
+    return locations.firstIndex { $0.mapID == location }
+}
+
     
 #Preview {
     ContentView()

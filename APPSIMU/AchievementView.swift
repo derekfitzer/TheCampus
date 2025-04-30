@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct AchievementView: View {
+  
     @State private var images = [Image]()
-        let columns = [GridItem(.fixed(100)), GridItem(.fixed(100))]
-
+    
+        let columns = [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100)),  GridItem(.fixed(100))]
+        
         var body: some View {
             ScrollView {
+                Text("Achivements Unlocked")
+                    .bold()
+                    .font(.system(size: 30))
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(0..<images.count, id: \.self) { index in
                         images[index]
@@ -22,17 +27,23 @@ struct AchievementView: View {
                 }
                 .padding(.horizontal)
             }
-            .frame(maxHeight: 350)
-
+//            .frame(maxHeight: 350)
+            
             Button("Add 10 Stars") {
-                for _ in 1...10 {
-                    images.append(Image(systemName: "star"))
+                for _ in 1...25 {
+                    images.append(Image("lockedArtifact"))
+                    
                 }
+                images.append(Image("fitzerart"))
             }
             .buttonStyle(.bordered)
         }
+    
 }
 
 #Preview {
     AchievementView()
 }
+
+
+

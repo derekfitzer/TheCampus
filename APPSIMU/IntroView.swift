@@ -27,12 +27,7 @@ struct IntroView: View {
                     Text("Start the Simulation")
                 }
                 
-                //            Button {
-                //                
-                //            } label: {
-                //                Text("Start the Simulation")
-                //            }
-                //            
+         
                 Spacer()
                 Text("Created by App & Sim at the South-Western Career Academy")
                     .font(.system(size: 10))

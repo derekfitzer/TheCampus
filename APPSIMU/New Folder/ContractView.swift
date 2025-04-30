@@ -146,10 +146,29 @@ struct ContractView: View {
                             .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
                         Text("• STRICTLY PROHIBITED: Direct contact between users and their Personas may trigger catastrophic recursive failures in The Campus AI engine. Maintain separation at all times.")
                             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                            .onAppear{
+                                showingAlert = true
+                            }
+                
                         Text("By proceeding with conversion, you acknowledge these risks and agree to hold CRS and The Campus harmless from any resulting physical, psychological, or digital consequences.")
                             .padding()
+//                            .alert("Important message", isPresented: $showingAlert) {
+//                                        Button("OK", role: .cancel) { }
+//                                    }
+                            .alert(isPresented: $showingAlert) {
+                                        Alert(title: Text("Important message"), message: Text("Please review our terms of service before starting your scanning process"), dismissButton: .default(Text("Continue")))
+                                    }
                         
-                        
+//                Button {
+//                    print(seachLoc(location: 2, locations: locations))
+//                    print("Hello")
+//                } label: {
+//                    Text("test find")
+//                    
+//                }
+
+                
+                
                         NavigationLink {
                             //  ScanView()
                             ContentView(location: map0)
