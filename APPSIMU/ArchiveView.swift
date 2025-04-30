@@ -87,7 +87,7 @@ struct archiveRandoRoom{
     var sound: String
     var text: String
 }
-var randoLocations: [archiveRandoRoom] = [rando2, rando1]
+var randoLocations: [archiveRandoRoom] = [jlmLiminal, rando2, rando1] //jlmLiminal is superior guys, trust :3
 
 
 var rando2 = archiveRandoRoom(image: "mk_liminal", sound: "crowd1", text: "blabvlaaksdasdasdad")
@@ -97,3 +97,4 @@ var rando1 = archiveRandoRoom(image: "liminal1", sound: "limimal1", text: "# The
 
 // use this your initials before Liminal
 //var fdfLiminal = archiveRandoRoom(image: <#T##String#>, sound: <#T##String#>, text: <#T##String#>)
+var jlmLiminal = archiveRandoRoom(image: "jmLiminalSpace", sound: "jmdistantwinds", text: "Il fait sombre et froid dans cet espace si… liminal? Le seul bruit est celui du vent lointain qui souffle sur ton visage. Où suis-je? Suis-je piégé? Est-ce le vide?")
