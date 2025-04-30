@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ArchiveView: View {
     var colors = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
-        @State private var selectedColor = "0"
+        @State private var pick1 = "0"
+        @State private var pick2 = "0"
+        @State private var pick3 = "0"
+        @State var currentRandom = randoLocations.randomElement()!
+    
+    
     var body: some View {
         ZStack{
             Image("jhallArchive")
@@ -43,33 +48,39 @@ struct ArchiveView: View {
                     .padding(EdgeInsets(top: 2, leading: 15, bottom: 40, trailing: 15 ))
                 
                 VStack {
-                            Picker("Please choose a color", selection: $selectedColor) {
-                                ForEach(colors, id: \.self) {
-                                    Text($0)
-                                }
-                            }.pickerStyle(.wheel)
-                        .background(Color.white)
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
-                    
-                    NavigationLink {
-                        RandoRoom(room: rando2)
-                    } label: {
-                        Text("Link")
+                    HStack{
+                        Picker("Please choose a color", selection: $pick1) {
+                            ForEach(colors, id: \.self) {
+                                Text($0)
+                            }
+                        }.pickerStyle(.wheel)
                             .background(Color.white)
-                    }
-//                    Button {
-//                       
-//
-//                    } label: {
-//                        Text("Enter Destination")
-//                            .padding(20)
-//                            .background(Color.white)
-//                    }
-
-                        
+                            
+                        Picker("Please choose a color", selection: $pick2) {
+                            ForEach(colors, id: \.self) {
+                                Text($0)
+                            }
+                        }.pickerStyle(.wheel)
+                            .background(Color.white)
+                        Picker("Please choose a color", selection: $pick3) {
+                            ForEach(colors, id: \.self) {
+                                Text($0)
+                            }
+                        }.pickerStyle(.wheel)
+                            .background(Color.white)
+                            
+                    }.background(Color.white)
+                        NavigationLink {
+                            RandoRoom(room: currentRandom)
+                        } label: {
+                            Text("Link")
+                                .background(Color.white)
+                        }
+                    
                         }
                 .onAppear{
                     playSound(sound: "archiveMusic", type: "mp3")
+                    currentRandom = randoLocations.randomElement()!
                 }.navigationBarBackButtonHidden(true)
                 Spacer()
             }
@@ -97,4 +108,4 @@ var rando1 = archiveRandoRoom(image: "liminal1", sound: "limimal1", text: "# The
 
 // use this your initials before Liminal
 //var fdfLiminal = archiveRandoRoom(image: <#T##String#>, sound: <#T##String#>, text: <#T##String#>)
-var jlmLiminal = archiveRandoRoom(image: "jmLiminalSpace", sound: "jmdistantwinds", text: "Il fait sombre et froid dans cet espace si… liminal? Le seul bruit est celui du vent lointain qui souffle sur ton visage. Où suis-je? Suis-je piégé? Est-ce le vide?")
+var jlmLiminal = archiveRandoRoom(image: "jmLiminalSpace", sound: "liminal1", text: "Il fait sombre et froid dans cet espace si… liminal? Le seul bruit est celui du vent lointain qui souffle sur ton visage. Où suis-je? Suis-je piégé? Est-ce le vide?")
