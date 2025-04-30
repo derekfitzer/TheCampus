@@ -20,12 +20,12 @@ struct RandoRoom: View {
                 Text(room.text)
             }
         }.onAppear{
-            playSound(sound: "liminal1", type: "mp3")
+            playSound(sound: room.sound, type: "mp3")
         }
         
     }
 }
 
 #Preview {
-    RandoRoom(room: rando1)
+    RandoRoom(room: rando2)
 }
