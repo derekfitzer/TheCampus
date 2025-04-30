@@ -16,6 +16,11 @@
 			path = APPSIMU;
 			sourceTree = "<group>";
 		};
+		28FBBD472DC25FE000B62B1C /* sound */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = sound;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			children = (
 				28FBBD052DC0042600B62B1C /* APPSIMU */,
 				28FBBD042DC0042600B62B1C /* Products */,
+				28FBBD472DC25FE000B62B1C /* sound */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +68,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				28FBBD052DC0042600B62B1C /* APPSIMU */,
+				28FBBD472DC25FE000B62B1C /* sound */,
 			);
 			name = APPSIMU;
 			packageProductDependencies = (

@@ -11,7 +11,8 @@ import SwiftUI
 struct APPSIMUApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+           // ContentView(location: map1)
+            IntroView()
         }
     }
 }
