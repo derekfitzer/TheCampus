@@ -12,7 +12,9 @@ struct ContentView: View {
     @State var locAlert = false
     @State var location = locations[0]
     @State var hide = false
+    @State var showLocation = true // toggle to show the archive view
     var body: some View {
+        if showLocation {
         ZStack {
             Image(location.image)
                 .resizable()
@@ -42,26 +44,22 @@ struct ContentView: View {
 //                    .cornerRadius(10)
 //                    .opacity(hide ? 0 : 1)
                 
-//                List(location.destinations) {
-//                    dest in
-//                    Button {
-//                       // let pickString = dest.link
-//                        location = locations[dest.link]
-//                    } label: {
-//                        Text(dest.myText)
-//                    }
-//                    .cornerRadius(10)
-//                }
+
 
                 List(location.destinations) {
                     dest in
                     Button {
-                        if let a = seachLoc(location: dest.link, locations: locations) {
-                            location = locations[a]
+                        if dest.link == 4 {
+                            showLocation = false
                         } else {
-                            locAlert = true
+                            if let a = seachLoc(location: dest.link, locations: locations) {
+                                
+                                location = locations[a]
+                                
+                            } else {
+                                locAlert = true
+                            }
                         }
-                        
 //                        location = locations[dest.link]
                     } label: {
                         Text(dest.myText)
@@ -93,14 +91,29 @@ struct ContentView: View {
             // this is not working
             if location.sound != nil {
                 print("loaded")
-              //  playSound(sound: location.sound!, type: "mp3")
+                //  playSound(sound: location.sound!, type: "mp3")
                 playSound(sound: "crowd1", type: "mp3")
             }
-            
         }.navigationBarBackButtonHidden(true)
-    }
-      
+            
+        } else {
+            Spacer()
+            VStack{
+                
+               ArchiveView()
+                Button {
+                    showLocation = true
+                } label: {
+                    Text("Return to Main Floor")
+                }.background(Color.white)
+                    .padding()
+            }
+           
+        }
+        }
 }
+      
+
 
 func seachLoc(location: Int, locations: [location]) -> Int? {
   //  return locations.firstIndex(where: $0.mapID == location)

@@ -73,7 +73,7 @@ struct ArchiveView: View {
                         NavigationLink {
                             RandoRoom(room: currentRandom)
                         } label: {
-                            Text("Link")
+                            Text("Open Destination")
                                 .background(Color.white)
                         }
                     
@@ -82,7 +82,9 @@ struct ArchiveView: View {
                     playSound(sound: "archiveMusic", type: "mp3")
                     currentRandom = randoLocations.randomElement()!
                 }.navigationBarBackButtonHidden(true)
-                Spacer()
+                
+
+                
             }
         }
     }
