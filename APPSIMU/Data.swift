@@ -56,7 +56,7 @@ var map3 = location(mapID: 3, locationName: "Residence Hall", image: "dorm", ima
 var jHall = destination(myText: "Jerimiah Hall", link: 1)
 var rossC = destination(myText: "Ross Commons", link: 2)
 var dorm = destination(myText: "Residence Hall", link: 3)
-var jl = destination(myText: "Jerimiah Hall Lower Level", link: 4)
+var jl = destination(myText: "Jerimiah Hall Archive", link: 4)
 var j2 = destination(myText: "Jerimiah Hall 2nd Floor", link: 5)
 var j3 = destination(myText: "Jerimiah Hall 3rd Floor", link: 6)
 
