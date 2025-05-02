@@ -20,11 +20,13 @@ struct location {
     var locationName: String
     var image: String
     var imageMain: String
-    var textBlocks: [String]?
+    var textBlocks: [String]
     var destinations: [destination]
-    var sound: String?
-    var portfolioImages: [String]?
+    var sound: String
+    var portfolioImages: [String]
     }
+
+
 
 struct destination: Hashable, Identifiable {
     var id = UUID()
