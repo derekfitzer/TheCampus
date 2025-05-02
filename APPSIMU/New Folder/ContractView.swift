@@ -171,7 +171,7 @@ struct ContractView: View {
                 
                         NavigationLink {
                             //  ScanView()
-                            ContentView(location: map0)
+                            ContentView(location: loc0000)
                         } label: {
                             Text("I agree to the CRS terms of service")
                         }

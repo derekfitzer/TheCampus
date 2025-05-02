@@ -56,7 +56,6 @@ struct ContentView: View {
                         } label: {
                             
                             Image(systemName: "arrow.forward.circle")
-                                .frame(width: 30, height: 30)
                                 .tint(Color.white)
                         }
                         
@@ -70,7 +69,7 @@ struct ContentView: View {
                             if portfolioIndex < location.portfolioImages!.count - 1 {
                                 portfolioIndex += 1
                             } else {
-                                portfolioIndex = 0
+                                textIndex = 0
                             }
                         } label: {
                             
