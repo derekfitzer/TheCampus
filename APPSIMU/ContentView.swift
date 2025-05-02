@@ -12,45 +12,99 @@ struct ContentView: View {
     @State var locAlert = false
     @State var location = locations[0]
     @State var hide = false
-    @State var showLocation = true // toggle to show the archive view
+    @State private var showLocation = false // toggle to show the archive view
+    @State var fullScreenDisplayed = false
+    @State private var presented = false
+    @State var textIndex = 0
+    @State var portfolioIndex = 0
+    @State var showText = true
     var body: some View {
-        if showLocation {
+        
         ZStack {
+            // background image
             Image(location.image)
                 .resizable()
-             //   .aspectRatio(contentMode: hide ? .fill : .fit)
+                .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
+            
             VStack{
-               
+                
                 Text(location.locationName)
                     .bold()
                     .font(.system(size: 40))
                     .opacity(hide ? 0 : 1)
                     .foregroundStyle(Color.white)
-             
+                    .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
                 
-                if location.textBlocks != nil && location.textBlocks!.count > 0  {
-                    Text((location.textBlocks?[0])!)
-                        .padding()
-                        .background(Color.white)
-                        .opacity(hide ? 0 : 1)
-                        .cornerRadius(10)
+                // toggle images or text display
+                
+                if showText {
+                    
+                    
+                    if location.textBlocks != nil && location.textBlocks!.count > 0  {
+                        Text((location.textBlocks?[textIndex])!)
+                            .padding()
+                            .background(Color.white)
+                            .opacity(hide ? 0 : 1)
+                            .cornerRadius(10)
+                        Button {
+                            if textIndex < location.textBlocks!.count - 1 {
+                                textIndex += 1
+                            } else {
+                                textIndex = 0
+                            }
+                        } label: {
+                            
+                            Image(systemName: "arrow.forward.circle")
+                                .frame(width: 30, height: 30)
+                                .tint(Color.white)
+                        }
+                        
+                    }
+                } else {
+                    if location.portfolioImages != nil && location.portfolioImages!.count > 0 {
+                        Image(location.portfolioImages![portfolioIndex])
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        Button {
+                            if portfolioIndex < location.portfolioImages!.count - 1 {
+                                portfolioIndex += 1
+                            } else {
+                                portfolioIndex = 0
+                            }
+                        } label: {
+                            
+                            Image(systemName: "arrow.forward.circle")
+                                .tint(Color.white)
+                        }
+                    }
                 }
-                
+                Button {
+                    showText.toggle()
+                    
+                } label: {
+                    if showText {
+                        Text("Switch to Images")
+                            
+                    } else {
+                        Text("Switch to Text")
+                    }
+                    
+                    
+                }.padding(EdgeInsets(top: 3, leading: 10, bottom: 3, trailing: 10))
+                .background(Color.white)
+                .opacity(location.portfolioImages != nil && location.portfolioImages!.count > 0 ? 1 : 0)
+                    
+
                 Spacer()
-//                Image(location.imageMain)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .cornerRadius(10)
-//                    .opacity(hide ? 0 : 1)
+
                 
-
-
+                
                 List(location.destinations) {
                     dest in
                     Button {
                         if dest.link == 4 {
-                            showLocation = false
+                            showLocation = true
                         } else {
                             if let a = seachLoc(location: dest.link, locations: locations) {
                                 
@@ -60,7 +114,7 @@ struct ContentView: View {
                                 locAlert = true
                             }
                         }
-//                        location = locations[dest.link]
+                        //                        location = locations[dest.link]
                     } label: {
                         Text(dest.myText)
                     }
@@ -77,48 +131,42 @@ struct ContentView: View {
                 }
                 .alert(isPresented: $locAlert) {
                     Alert(title: Text("Location Error"), message: Text(String(msg404.randomElement() ?? ":-)")), dismissButton: .default(Text("Continue")))
-                        }
-               
+                }
                 
-                NavigationLink("rando", destination: ArchiveView())
-
-
-
-            }
-            .padding()
-        }
-        .onAppear{
-            // this is not working
-            if location.sound != nil {
-                print("loaded")
-                //  playSound(sound: location.sound!, type: "mp3")
-                playSound(sound: "crowd1", type: "mp3")
-            }
-        }.navigationBarBackButtonHidden(true)
+                
+                NavigationLink("rando", destination: ArchiveView( isPresented: $showLocation ))
             
-        } else {
-            Spacer()
-            VStack{
-                
-               ArchiveView()
-                Button {
-                    showLocation = true
-                } label: {
-                    Text("Return to Main Floor")
-                }.background(Color.white)
-                    .padding()
             }
-           
-        }
-        }
-}
-      
+                
+            }.sheet(isPresented: $showLocation){
+                ArchiveView(isPresented: $showLocation)
+                
+                }
+            .onAppear{
+                // this is not working
+                if location.sound != nil {
+                    print("loaded")
+                    //  playSound(sound: location.sound!, type: "mp3")
+                    playSound(sound: "crowd1", type: "mp3")
+                }
+            
+        }.navigationBarBackButtonHidden(true)
 
+            }
+            
+        }
+        
 
-func seachLoc(location: Int, locations: [location]) -> Int? {
-  //  return locations.firstIndex(where: $0.mapID == location)
-    return locations.firstIndex { $0.mapID == location }
-}
+    
+
+    
+    
+    
+    
+    func seachLoc(location: Int, locations: [location]) -> Int? {
+        //  return locations.firstIndex(where: $0.mapID == location)
+        return locations.firstIndex { $0.mapID == location }
+    }
 
     
 #Preview {

@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct RandoRoom: View {
+struct ArchiveRandoRoom: View {
     @State var room: archiveRandoRoom
-    var body: some View {
+    
+        var body: some View {
         ZStack{
             Image(room.image)
                 .resizable()
@@ -17,6 +18,8 @@ struct RandoRoom: View {
                 .ignoresSafeArea()
                 .foregroundStyle(Color.white)
             ScrollView{
+                
+
                 Text(room.text)
             }
         }.onAppear{
@@ -26,6 +29,6 @@ struct RandoRoom: View {
     }
 }
 
-#Preview {
-    RandoRoom(room: rando2)
-}
+//#Preview {
+//    RandoRoom(room: rando2)
+//}
