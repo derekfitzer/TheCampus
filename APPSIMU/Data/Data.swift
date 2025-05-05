@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 
+
+
+
 // array of all locations. New Locations should be added to this array.
 
 var locations = [loc0000, loc0001, loc0002, loc0003, loc1000, loc2000, loc3000, loc4000, loc5000, loc6000, loc7000]
@@ -18,11 +21,11 @@ var locations = [loc0000, loc0001, loc0002, loc0003, loc1000, loc2000, loc3000, 
 
 struct location: Identifiable, Hashable {
     var id = UUID()
-    var mapID: Int
+    var mapID: Int //this is the XXXX number from the DestinationsData View
     var locationName: String
-    var owner: String?
-    var ownerNickname: String?
-    var ownerInitials: String?
+    var owner: String? // not used
+    var ownerNickname: String? // not used
+    var ownerInitials: String? // not used
     var image: String // this is the background image for your location
     var imageMain: String // this will be removed
     var textBlocks: [String]?  // array of text messages that will be displayed in the main location text area
@@ -32,22 +35,29 @@ struct location: Identifiable, Hashable {
     }
 
 
+// These Structs have been instanced and are located in DataDestinations
+
 struct destination: Hashable, Identifiable {
     var id = UUID()
     var myText: String
     var link: Int
 }
 
+// Not Used
+
 var studentLocations: [location] = [loc0410]
 
-
+// Not Used
     
 struct player {
         var playerName: String
         var collectedItems: [item]
         var cash: Int
     }
-    
+
+// Not Used
+
+
 struct item {
         var itemName: String
         var unlocks: Int
@@ -56,6 +66,7 @@ struct item {
     }
 
 
+// Not Used
 
 struct interactions: Hashable, Identifiable { // interactions are perform action, go to destination, claim Item, and talk to persona.
     var id = UUID()

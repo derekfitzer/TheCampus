@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     //var location: location
-    @State var locAlert = false
-    @State var location = locations[0]
-    @State var hide = false
+    @State var locAlert = false // fire alert if a missing location is clicked
+    @State var location = locations[0] // updated to display new locations defaults to 0
+    @State var hide = false // toggle hide show ui - depreciated
     @State private var showLocation = false // toggle to show the archive view
-    @State var fullScreenDisplayed = false
-    @State private var presented = false
-    @State var textIndex = 0
-    @State var portfolioIndex = 0
-    @State var showText = true
+    @State var fullScreenDisplayed = false // controll .ignoreSafeArea - depreciated
+   // @State private var presented = false // 
+    @State var textIndex = 0 // step through text
+    @State var portfolioIndex = 0 // step through images
+    @State var showText = true // hide text - depreciated
     var body: some View {
         
         ZStack {
