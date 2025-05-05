@@ -34,4 +34,4 @@ var loc7000 = location(mapID: 7000, locationName: "Jerimiah Hall Floor 3 Lobby",
 
 var loc0410 = location(mapID: 410, locationName: "Mr. Fitzer", owner: "Mr.Fitzer", image: "lobbyGeneric", imageMain: "", destinations: [dest0001], portfolioImages: ["lobbyGeneric"] )
 
-
+var loc0350 = location(mapID: 350, locationName: "Joshua", image: "jmLiminalSpace", imageMain: "", destinations: [dest0350])
