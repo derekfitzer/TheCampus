@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 
+// array of all locations. New Locations should be added to this array.
+
+var locations = [loc0000, loc0001, loc0002, loc0003, loc1000, loc2000, loc3000, loc4000, loc5000, loc6000, loc7000]
+
 // Create an instance of the location and destination structs below:
 // make sure all instances of structs start with your initials.
 
@@ -92,8 +96,7 @@ enum factions {
 
 var msg404 = ["kerrerd fis napp rost pllea e4aas thi 23lskkkdd","We appologise but the requested location is offline. Please contact Campus IT to report missing, disruptive, fradulent or hostile enviornments. \n\nHave a wonderful day on the Campus","We apologize but the requested location is currently experiencing a temporal shift. Please try your request later.\n\nThe Campus is Glad You Are Here","Due to high volumes of location requests your location has been shifted to an alternate universe buffer, please check back later.\n\nThe Campus Loves You","Error ID 7939210 print(someone, anyone, save us from CROG)\n\nThe Campus - Your Home Away from Home","🤡\n\nThe Campus\nYou Can Never Leave","Integrity Buffer Overrun Error 867: The requested location has experienced an morality violation. Please try again later.\n\nThe Campus YES!","The voicemail box for location has not been set up. Please try again later.\n\nThe Campus\nYou Cant Call Home"]
 
-// array of all locations
-var locations = [loc0000, loc0001, loc0002, loc0003, loc1000, loc2000, loc3000, loc4000, loc5000, loc6000, loc7000]
+
 
 
 

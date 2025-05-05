@@ -5,6 +5,9 @@
 //  Created by Derek Fitzer on 5/5/25.
 //
 
+// This view will dispay the players current location on the map.
+
+
 import SwiftUI
 
 struct MapView: View {
