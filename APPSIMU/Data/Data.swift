@@ -14,7 +14,7 @@ import SwiftUI
 
 // array of all locations. New Locations should be added to this array.
 
-var locations = [loc0000, loc0001, loc0002, loc0003, loc1000, loc2000, loc3000, loc4000, loc5000, loc6000, loc7000, loc0100]
+var locations = [loc0000, loc0001, loc0002, loc0003, loc1000, loc2000, loc3000, loc4000, loc5000, loc6000, loc7000]
 
 // Create an instance of the location and destination structs below:
 // make sure all instances of structs start with your initials.
@@ -35,7 +35,7 @@ struct location: Identifiable, Hashable {
     }
 
 
-var loc0100 = location(mapID: 100, locationName: "sample room", image: "map1", imageMain: "map1", textBlocks: ["This","is ","a","test"], destinations: [dest1000], portfolioImages: ["fdfjh1","map1"])
+
 
 // These Structs have been instanced and are located in DataDestinations
 

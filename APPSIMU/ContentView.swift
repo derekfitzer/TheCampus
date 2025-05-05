@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var locAlert = false // fire alert if a missing location is clicked
     @State var location = locations[0] // updated to display new locations defaults to 0
     @State var hide = false // toggle hide show ui - depreciated
-    @State private var showLocation = false // toggle to show the archive view
+    @State private var showLocation = false // Toggle to show the archive view
     @State var fullScreenDisplayed = false // controll .ignoreSafeArea - depreciated
    // @State private var presented = false // 
     @State var textIndex = 0 // step through text
