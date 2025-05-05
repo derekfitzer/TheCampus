@@ -18,3 +18,8 @@ import Foundation
 // 4.5 Create a folder in assets and add your image files.
 // 4.7 Add your sound files to the sound folder.
 // 5. Test to see if your location was added.
+
+
+// Sample:
+
+// var loc0100 = location(mapID: 100, locationName: "sample room", image: "map1", imageMain: "map1", textBlocks: ["This","is ","a","test"], destinations: [dest1000], portfolioImages: ["fdfjh1","fdfmap1"])
