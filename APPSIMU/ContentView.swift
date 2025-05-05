@@ -25,7 +25,7 @@ struct ContentView: View {
             Image(location.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
+//                .ignoresSafeArea()
             
             VStack{
                 
@@ -34,7 +34,7 @@ struct ContentView: View {
                     .font(.system(size: 40))
                     .opacity(hide ? 0 : 1)
                     .foregroundStyle(Color.white)
-                    .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
                 
                 // toggle images or text display
                 
@@ -95,7 +95,7 @@ struct ContentView: View {
                 .opacity(location.portfolioImages != nil && location.portfolioImages!.count > 0 ? 1 : 0)
                     
 
-                Spacer()
+              //  Spacer()
 
                 
                 
@@ -113,7 +113,7 @@ struct ContentView: View {
                                 locAlert = true
                             }
                         }
-                        //                        location = locations[dest.link]
+
                     } label: {
                         Text(dest.myText)
                     }
@@ -122,22 +122,23 @@ struct ContentView: View {
                 .listRowBackground(Color.clear)
                 .scrollContentBackground(.hidden)
                 .opacity(hide ? 0 : 1)
-                Button {
-                    hide.toggle()
-                    playSound(sound: "crowd1", type: "mp3")
-                } label: {
-                    Text("hide")
-                }
+//                Button {
+//                    hide.toggle()
+//                    playSound(sound: "crowd1", type: "mp3")
+//                } label: {
+//                    Text("hide")
+//                }
                 .alert(isPresented: $locAlert) {
                     Alert(title: Text("Location Error"), message: Text(String(msg404.randomElement() ?? ":-)")), dismissButton: .default(Text("Continue")))
                 }
                 
                 
-                NavigationLink("rando", destination: ArchiveView( isPresented: $showLocation ))
+//                NavigationLink("rando", destination: ArchiveView( isPresented: $showLocation ))
             
             }
                 
-            }.sheet(isPresented: $showLocation){
+            }
+            .sheet(isPresented: $showLocation){
                 ArchiveView(isPresented: $showLocation)
                 
                 }

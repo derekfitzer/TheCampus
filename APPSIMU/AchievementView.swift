@@ -13,7 +13,8 @@ struct AchievementView: View {
     
         let columns = [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100)),  GridItem(.fixed(100))]
         
-        var body: some View {
+    var body: some View {
+        VStack{
             ScrollView {
                 Text("Achivements Unlocked")
                     .bold()
@@ -27,7 +28,7 @@ struct AchievementView: View {
                 }
                 .padding(.horizontal)
             }
-//            .frame(maxHeight: 350)
+            //            .frame(maxHeight: 350)
             
             Button("Add 10 Stars") {
                 for _ in 1...25 {
@@ -38,7 +39,7 @@ struct AchievementView: View {
             }
             .buttonStyle(.bordered)
         }
-    
+    }
 }
 
 #Preview {

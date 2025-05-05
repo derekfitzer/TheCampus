@@ -171,7 +171,8 @@ struct ContractView: View {
                 
                         NavigationLink {
                             //  ScanView()
-                            ContentView(location: loc0000)
+                           // ContentView(location: loc0000)
+                            MyTabView()
                         } label: {
                             Text("I agree to the CRS terms of service")
                         }
@@ -187,6 +188,7 @@ struct ContractView: View {
                     }
                     .padding()
             }
+            .navigationBarBackButtonHidden(true)
             .onAppear{
                 playSound(sound: "theCampus3", type: "mp3")
                     

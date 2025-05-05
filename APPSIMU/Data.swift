@@ -12,18 +12,19 @@ import SwiftUI
 // Create an instance of the location and destination structs below:
 // make sure all instances of structs start with your initials.
 
-struct location {
+struct location: Identifiable, Hashable {
     var id = UUID()
     var mapID: Int
     var locationName: String
     var owner: String?
+    var ownerNickname: String?
     var ownerInitials: String?
-    var image: String
-    var imageMain: String
-    var textBlocks: [String]?
-    var destinations: [destination]
-    var sound: String?
-    var portfolioImages: [String]?
+    var image: String // this is the background image for your location
+    var imageMain: String // this will be removed
+    var textBlocks: [String]?  // array of text messages that will be displayed in the main location text area
+    var destinations: [destination] // links - NOTE this method will be replaced with interactions
+    var sound: String?  // sound that plays when a location is entered.
+    var portfolioImages: [String]? // array of images
     }
 
 
@@ -32,6 +33,8 @@ struct destination: Hashable, Identifiable {
     var myText: String
     var link: Int
 }
+
+var studentLocations: [location] = [loc0410]
 
 
     

@@ -11,6 +11,8 @@ import Foundation
 
 // Place student locations in your studentData / Student initial folder
 
+
+
 var loc0000 = location(mapID: 0, locationName: "Campus Map", image: "map1", imageMain: "campusLogo", textBlocks: ["Welcome to The Campus, please select a destination"], destinations: [dest0001, dest0002, dest0003], portfolioImages: [])
 
 var loc0001 = location(mapID: 1, locationName: "Jerimiah Hall", image: "campus", imageMain: "campus11", textBlocks: ["Jerimiah Hall: Innovation Hub \n\nLocated at the heart of The Campus's virtual landscape, Jerimiah Hall stands as a beacon of technological advancement and creative exploration. This state-of-the-art academic complex serves as the primary hub for aspiring innovators, developers, and digital pioneers.", "You can explore several unique classrooms and labratories","The upper floors are hard to navigate without knowing your destination"], destinations: [dest6000, dest7000, dest0004, dest0002, dest0003], sound: "crowd1", portfolioImages: ["fdfjh1", "fitzerart"])
@@ -27,4 +29,9 @@ var loc4000 = location(mapID: 4000, locationName: "Dorms 2st Floor", image: "lob
 var loc5000 = location(mapID: 5000, locationName: "Dorms 3nd Floor", image: "lobbyGeneric", imageMain: "lobbyGeneric", destinations: [dest0320, dest0330, dest0340, dest0350, dest0360, dest0370,  dest0003])
 var loc6000 = location(mapID: 6000, locationName: "Jerimiah Hall Floor 2 Lobby", image: "lobbyGeneric", imageMain: "lobbyGeneric", destinations: [dest0380, dest0390, dest0400, dest0410, dest0420, dest0001])
 var loc7000 = location(mapID: 7000, locationName: "Jerimiah Hall Floor 3 Lobby", image: "lobbyGeneric", imageMain: "lobbyGeneric", destinations: [dest0430, dest0440, dest0450, dest0460, dest0470, dest0480, dest0001])
+
+// sample student instace of location
+
+var loc0410 = location(mapID: 410, locationName: "Mr. Fitzer", owner: "Mr.Fitzer", image: "lobbyGeneric", imageMain: "", destinations: [dest0001], portfolioImages: ["lobbyGeneric"] )
+
 
