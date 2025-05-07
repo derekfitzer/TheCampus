@@ -35,7 +35,7 @@ struct location: Identifiable, Hashable {
     }
 
 
-
+var loc0411 = location(mapID: 411, locationName: "Dean Fitzers Office", image: "map1", imageMain: "", destinations: [dest7000])
 
 // These Structs have been instanced and are located in DataDestinations
 
